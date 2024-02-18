@@ -14,13 +14,13 @@ from random import  choice, randint
 
                 
 @app.on_message(
-    command(["سورس","‹ السورس ›","زد إي","السورس", "سورس زد إي"])
+    command([""])
 )
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/41a777f089288f7ad2571.jpg",
         caption=f"""**ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ . .
- [🔱 𝐒𝐎𝐔𝐑𝐂𝐄 𝐙𝐄 🔱](https://t.me/Source_Ze)**""",
+ [𝗦𝗢𝗨𝗥𝗖𝗘 𝗦𝗡𝗜𝗣𝗘𝗥](https://t.me/BPHEE)**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
