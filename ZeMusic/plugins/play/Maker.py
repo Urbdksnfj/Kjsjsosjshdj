@@ -6,7 +6,7 @@ from ZeMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
 
 @app.on_message(
-    command(["","‹ اوامر التشغيل ›"])
+    command(["",""])
     & filters.group
 )
 async def maker(client: Client, message: Message):
@@ -46,7 +46,7 @@ async def maker(client: Client, message: Message):
     )
 
 @app.on_message(
-    command(["","‹ اوامر التفعيل ›"])
+    command(["",""])
     & filters.group
 )
 async def maker(client: Client, message: Message):
