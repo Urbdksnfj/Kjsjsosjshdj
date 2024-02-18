@@ -15,23 +15,23 @@ from random import  choice, randint
 
 #          
                 
-@app.on_message(filters.command(["مودي","المبرمج مودي","مبرمج السورس","مبرمج"],"")
+@app.on_message(filters.command(["يوسف","المبرمج يوسف","مبرمج السورس","مبرمج"],"")
 )
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/96857cb597b588139fdd5.jpg",
-        caption=f"""◉ 𝙽𝙰𝙼𝙴 : ❪[𐇮 𝑴𝑶𝑫𝒀 𖠮🚸𖠮 آلـۘهہؚيـٰـ‌ُـُ໋۠بـ໋ۘ۠ه 𐇮](https://t.me/elhyba)❫
-◉ 𝚄𝚂𝙴𝚁 : ❪ @elhyba ❫
-◉ 𝙸𝙳      : ❪ `6581896306` ❫
-◉ 𝙱𝙸𝙾    : ❪ for me (@elhypa) my world (@Source_Ze - @up_uo) my bro (@e_l_z_o_u_z) ❫""",
+        photo=f"https://telegra.ph/file/28c072a310a6ffe042c84.mp4",
+        caption=f"""◉ 𝙽𝙰𝙼𝙴 : ❪[𝗬.𝗢.𝗨.𝗦.𝗦.𝗘.𝐅]❫
+◉ 𝚄𝚂𝙴𝚁 : ❪ @JOO_B_R_Z ❫
+◉ 𝙸𝙳      : ❪ `6943111120` ❫
+◉ 𝙱𝙸𝙾    : ❪ᥲ #ρᥱᖇ᥉᥆ꪀ Ꭵ᥉ #ժᥱ𝖋ᥱᥲƚᥱժ 𝖡ꪗ ƚᎻᥱ #ƚᎻᎥꪀᘜ᥉ Ꮋᥱ #ᥱꪎᥲᘜᘜᥱᖇᥲƚᥱ᥉ 𝐂𝐇 ⦂ J_GGC.t.me❫""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "᳒𐇮 𝑴𝑶𝑫𝒀 𖠮🚸𖠮 آلـۘهہؚيـٰـ‌ُـُ໋۠بـ໋ۘ۠ه 𐇮", url=f"https://t.me/elhyba"), 
+                        "𝗬.𝗢.𝗨.𝗦.𝗦.𝗘.𝐅", url=f"https://t.me/JOO_B_R_Z"), 
                  ],[
                    InlineKeyboardButton(
-                        "🔱 𝐒𝐎𝐔𝐑𝐂𝐄 𝐙𝐄 🔱", url=f"https://t.me/Source_Ze"),
+                        "𝗦𝗢𝗨𝗥𝗖𝗘 𝗦𝗡𝗜𝗣𝗘𝗥", url=f"https://t.me/BPHEE"),
                 ],
 
             ]
