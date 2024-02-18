@@ -21,13 +21,7 @@ def is_sudoer(_, __, message):
 
 def is_owner(_, __, message):
 
-    return message.from_user.id == OWNER_ID
-
-
-other_filters = filters.group &  ~filters.via_bot & ~filters.forwarded
-other_filters2 = (
-    filters.private &  ~filters.via_bot & ~filters.forwarded
-)
+    return message.from_user.id == OWN
 
 
 def command(commands: Union[str, List[str]]):
