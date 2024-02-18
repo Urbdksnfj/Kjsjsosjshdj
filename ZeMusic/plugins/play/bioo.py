@@ -9,7 +9,7 @@ from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMar
 from ZeMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
 
-@app.on_message(filters.command(["زخارف","الزخارف","✨زخارف"], ""))
+@app.on_message(filters.command([""], ""))
 async def abrag(c: Client, m: Message):
     global mid
     mid = m.id
