@@ -1,17 +1,6 @@
 import asyncio
 from pyrogram import Client, filters
 from strings.filters import command
-from ZeMusic.utils.decorators import AdminActual
-from pyrogram.types import (
-    CallbackQuery,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    ReplyKeyboardMarkup,
-    ReplyKeyboardRemove,
-    InputMediaPhoto,
-    Message,
-)
-from ZeMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
 
 REPLY_MESSAGE = "**- اهلا بك عزيزي اليك قائمه الاوامر**"
