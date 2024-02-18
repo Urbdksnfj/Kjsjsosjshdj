@@ -1,9 +1,20 @@
 import asyncio
 from pyrogram import Client, filters
 from strings.filters import command
+from ZeMusic.utils.decorators import AdminActual
+from pyrogram.types import (
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    ReplyKeyboardMarkup,
+    ReplyKeyboardRemove,
+    InputMediaPhoto,
+    Message,
+)
+from ZeMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
 
-REPLY_MESSAGE = "**- اهلا بك عزيزي اليك قائمه الاوامر**"
+REPLY_MESSAGE = ""
 
 
 
@@ -12,26 +23,26 @@ REPLY_MESSAGE_BUTTONS = [
 
          [
 
-             ("‹ اوامر التشغيل ›"),                   
+             (""),                   
 
-             ("‹ اوامر التفعيل ›")
-
-
+             ("")
 
 
-          ],
 
-          [
-
-             ("‹ اوامر التسليه ›"),
-
-             ("‹ السورس ›")
 
           ],
 
           [
 
-             ("اخفاء الازرار")
+             (""),
+
+             ("")
+
+          ],
+
+          [
+
+             ("")
 
           ]
 
@@ -42,7 +53,7 @@ REPLY_MESSAGE_BUTTONS = [
 
   
 
-@app.on_message(filters.regex(""))
+@app.on_message(filters.regex("^$"))
 async def cpanel(_, message: Message):             
         text = REPLY_MESSAGE
         reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, resize_keyboard=True, selective=True)
@@ -51,7 +62,7 @@ async def cpanel(_, message: Message):
               reply_markup=reply_markup
         )
 
-@app.on_message(filters.regex("اخفاء الازرار") & filters.group)
+@app.on_message(filters.regex("") & filters.group)
 async def down(client, message):
           m = await message.reply("**- بخدمتك حجي خفيت الازرار\n- اذا تريد تطلعها مرة ثانية اكتب الاوامر**", reply_markup= ReplyKeyboardRemove(selective=True))
 
