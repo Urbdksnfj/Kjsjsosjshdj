@@ -4,7 +4,7 @@ from strings import get_command
 from strings.filters import command
 from pyrogram.types import Message, VoiceChatStarted, VoiceChatEnded
 from ZeMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
-from ZeMusic.core.call import Anon
+from ZeMusic.core.call import Mody
 from ZeMusic.utils.database import get_assistant
 
 @app.on_message(filters.voice_chat_started)
