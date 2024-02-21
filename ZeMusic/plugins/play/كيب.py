@@ -1,17 +1,9 @@
 import asyncio
-import os
-from pyrogram.types import CallbackQuery
-from ZeMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
-from ZeMusic import app
-import requests
-import pyrogram
-from pyrogram import Client, emoji 
-from config import *
-from pyrogram import filters
+from pyrogram import Client, filters
 from strings.filters import command
-from config import OWNER_ID
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-from pyrogram.errors import MessageNotModified
+from ZeMusic.utils.decorators import AdminActual
+from pyrogram.types import
+
 
 @app.on_message(
     command("الاوامر")
