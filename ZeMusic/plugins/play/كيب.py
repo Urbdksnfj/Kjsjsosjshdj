@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 from strings.filters import command
 from ZeMusic.utils.decorators import AdminActual
 from pyrogram.types import *
-
+from ZeMusic import app
 
 @app.on_message(
     command("الاوامر")
