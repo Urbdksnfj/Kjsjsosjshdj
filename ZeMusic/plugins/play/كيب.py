@@ -2,196 +2,84 @@ import asyncio
 from pyrogram import Client, filters
 from strings.filters import command
 from ZeMusic.utils.decorators import AdminActual
-from pyrogram.types import *
-from ZeMusic import app
-
-@app.on_message(
-    command("الاوامر")
+from pyrogram.types import (
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    ReplyKeyboardMarkup,
+    ReplyKeyboardRemove,
+    InputMediaPhoto,
+    Message,
 )
-async def cr_source(client: Client, message: Message):
-    await message.reply_photo(
-        photo=f"https://graph.org/file/c973727bddf803e028539.jpg",
-        caption=f"""**⩹━★⊷━⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝━⊶★━⩺**\nمرحبا بك عزيزي {message.from_user.mention}\nهذا قسم الاوامر الخاص بسورس كرستين \nلمعرفة الاوامر اضغط على الأزرار بالأسفل👇\n**⩹━★⊷━⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝━⊶★━⩺**""",
+from ZeMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+
+
+REPLY_MESSAGE = "**- اهلا بك عزيزي اليك قائمه الاوامر**"
+
+
+
+
+REPLY_MESSAGE_BUTTONS = [
+
+         [
+
+             ("‹ اوامر التشغيل ›"),                   
+
+             ("‹ اوامر التفعيل ›")
+
+
+
+
+          ],
+
+          [
+
+             ("‹ اوامر التسليه ›"),
+
+             ("‹ السورس ›")
+
+          ],
+
+          [
+
+             ("اخفاء الازرار")
+
+          ]
+
+]
+
+
+
+
+  
+
+@app.on_message(filters.regex("^الاوامر$"))
+async def cpanel(_, message: Message):             
+        text = REPLY_MESSAGE
+        reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, resize_keyboard=True, selective=True)
+        await message.reply(
+              text=text,
+              reply_markup=reply_markup
+        )
+
+@app.on_message(filters.regex("اخفاء الازرار") & filters.group)
+async def down(client, message):
+          m = await message.reply("**- بخدمتك حجي خفيت الازرار\n- اذا تريد تطلعها مرة ثانية اكتب الاوامر**", reply_markup= ReplyKeyboardRemove(selective=True))
+
+
+@app.on_message(filters.group & command("طريقة ربط القنوات"))
+async def dowhmo(client: Client, message: Message):
+    await message.reply_text("""- هلا والله\n◌**عشان تشغل بالقنوات لازم تسوي بعض الخطوات وهي◌** :\n\n1 -› تدخل البوت قناتك وترفعه مشرف\n2 -› ترجع للقروب وتكتب { **ربط + يوزر القناة** }\n3 -› **اضغط على زر اوامر التشغيل عشان تعرف كيف تشغل**..""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "اوامر الجروبات", callback_data="gr"),
-                    InlineKeyboardButton(
-                        "اوامر القنوات", callback_data="ch"),  
-                 ],[
-                    InlineKeyboardButton(
-                        "اوامر الادمن", callback_data="adm"), 
+                        "قناة السورس", url=f"https://t.me/Source_Ze"),
                 ],[
-                
                     InlineKeyboardButton(
-                        "★⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⚡", url=f"https://t.me/pp_g3"),
+                        "• ضيفني لقروبك 🎻", url=f"https://t.me/{app.username}?startgroup=true"),
                 ],
-
             ]
-
         ),
-
+        disable_web_page_preview=True
     )
-
-    
-@app.on_callback_query(filters.regex("gr"))
-async def cr_usage(_, callback_query: CallbackQuery):
-    await callback_query.answer()
-    await callback_query.message.edit_text(
-        text="""**⩹━★⊷⌯⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⌯⊶★━⩺**
-★¦ اهلا بك عزيزي في قسم اوامر التشغيل في الجروبات
-★¦ تشغيل + اسم الاغنيه
-★¦ فديو + اسم الاغنيه
-★¦ #فيديو + اسم الاغنيه
-★¦ #فديو + اسم الاغنيه
-★¦ {NAME_BOT} + اسم الاغنيه
-★¦ /فيديو + اسم الاغنيه
-★¦ /ق شغل + اسم الاغنيه
-★¦ /تشغيل + اسم الاغنيه
-★¦ cvplay + اسم الاغنيه
-★¦ cplay + اسم الاغنيه
-★¦ #تشغيل + اسم الاغنيه
-★¦ فيديو + اسم الاغنيه
-★¦ سورة + اسم السورة 
-★¦ /cvplayforce + اسم الاغنيه
-★¦ /cplayforce + اسم الاغنيه
-★¦ vplayforce + اسم الاغنيه
-★¦ /playforce + اسم الاغنيه
-★¦ /cvplay + اسم الاغنيه
-★¦ /vplay + اسم الاغنيه
-★¦ /play + اسم الاغنيه
-
-**⩹━★⊷⌯⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⌯⊶★━⩺**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "التالي", callback_data="ch"), 
-                    
-                ],[
-                    InlineKeyboardButton(
-                        "الرئيسية", callback_data="back"), 
-                    
-                ]
-            ]
-        )
-    )
-
-@app.on_callback_query(filters.regex("ch"))
-async def cr_usage(_, callback_query: CallbackQuery):
-    await callback_query.answer()
-    await callback_query.message.edit_text(
-        text="""**⩹━★⊷⌯⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⌯⊶★━⩺**
-★¦ اهلا بك عزيزي في قسم اوامر التشغيل في القنوات
-★¦ شغل + اسم الاغنيه
-★¦ قناه + اسم الاغنيه
-★¦ مانو + اسم الاغنيه
-★¦ ق + اسم الاغنيه
-★¦ اغاني + اسم الاغنيه
-★¦ . + اسم الاغنيه
-★¦ / + اسم الاغنيه
-**⩹━★⊷⌯⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⌯⊶★━⩺**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "التالي", callback_data="adm"), 
-                    InlineKeyboardButton(
-                        "العودة", callback_data="gr"), 
-                ],[
-                    InlineKeyboardButton(
-                        "الرئيسية", callback_data="back"), 
-                    
-                ]
-            ]
-        )
-    )
-
-@app.on_callback_query(filters.regex("adm"))
-async def cr_usage(_, callback_query: CallbackQuery):
-    await callback_query.answer()
-    await callback_query.message.edit_text(
-        text="""**⩹━★⊷⌯⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⌯⊶★━⩺**
-★¦ اهلا بك عزيزي في قسم اوامر تشغيل الادمن
-★¦ رفع ثانوي
-★¦ تنزيل ثانوي
-★¦ قائمة الثانويين
-★¦ رفع ادمن
-★¦ تنزيل ادمن
-★¦ قائمة الادمن
-★¦ حظر
-★¦ الغاء الحظر
-★¦ المحظورين
-★¦ حظر عام
-★¦ الغاء الحظر العام
-★¦ المحظورين عام
-★¦ اونلاين
-★¦ اذاعه
-★¦ تحديث
-★¦ logger
-★¦ ريلود
-★¦ وقف
-★¦ كمل
-★¦ اسكت
-★¦ اتكلم
-★¦ ايقاف
-★¦ تخطي
-★¦ @all
-★¦ all stop
-★¦ يوتيوب / تنزيل
-★¦ playing
-★¦ القائمه
-★¦ حذف القائمه
-★¦ تحديث
-★¦ الاحصائيات
-★¦ لايف
-★¦ مساعده
-★¦ الاعدادت
-★¦ بينج
-
-**⩹━★⊷⌯⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⌯⊶★━⩺**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "التالي", callback_data="gr"), 
-                    InlineKeyboardButton(
-                        "العودة", callback_data="ch"), 
-                ],[
-                    InlineKeyboardButton(
-                        "الرئيسية", callback_data="back"), 
-                    
-                ]
-            ]
-        )
-    )
-
-    
-@app.on_callback_query(filters.regex("back"))
-async def cr_back(_, callback_query: CallbackQuery):
-    await message.reply_photo(
-        photo=f"https://graph.org/file/c973727bddf803e028539.jpg",
-        caption=f"""**⩹━★⊷━⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝━⊶★━⩺**\nمرحبا بك عزيزي {message.from_user.mention}\nهذا قسم الاوامر الخاص بسورس كرستين \nلمعرفة الاوامر اضغط على الأزرار بالأسفل👇\n**⩹━★⊷━⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝━⊶★━⩺**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "اوامر الجروبات", callback_data="gr"),
-                    InlineKeyboardButton(
-                        "اوامر القنوات", callback_data="ch"),  
-                 ],[
-                    InlineKeyboardButton(
-                        "اوامر الادمن", callback_data="adm"), 
-                ],[
-                
-                    InlineKeyboardButton(
-                        "★⌞ 𝘾𝙍 • 𝙎𝙊𝙐𝙍𝘾𝙀 ⌝⚡", url=f"https://t.me/pp_g3"),
-                ],
-
-            ]
-
-        ),
-
-    )
-
